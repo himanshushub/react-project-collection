@@ -6,12 +6,18 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <main className="router_content">
-          <RouterProvider router={router} />
-        </main>
+    <div>
+      <header className="app-header">
+        <a
+          href="/react-project-collection"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Home
+        </a>
       </header>
+      <main>
+        <RouterProvider router={router} />
+      </main>
     </div>
   );
 }

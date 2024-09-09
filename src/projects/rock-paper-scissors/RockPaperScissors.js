@@ -62,7 +62,15 @@ export default function RockPaperScissors() {
   };
 
   return (
-    <main>
+    <main
+      style={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <div style={{ fontSize: "40px", marginBottom: "25px" }}>
         ROCK PAPER SCISSORS
       </div>
@@ -72,6 +80,7 @@ export default function RockPaperScissors() {
           gap: "60px",
           alignItems: "center",
           justifyContent: "center",
+          marginBottom: "10px",
         }}
       >
         <section style={{ display: "flex", flexDirection: "column" }}>
@@ -93,7 +102,7 @@ export default function RockPaperScissors() {
           </div>
         </section>
       </div>
-      <div style={{ fontSize: "30px" }}>
+      <div style={{ fontSize: "30px", marginBottom: "20px" }}>
         {resultRef.current && `Result: ${resultRef.current}`}
       </div>
       <button

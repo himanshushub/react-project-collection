@@ -16,6 +16,6 @@ const route = createBrowserRouter([
     path: "/react-project-collection/rock-paper-scissors",
     element: <RockPaperScissors />,
   },
-])
+]);
 
-export default route
+export default route;
