@@ -1,8 +1,14 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
     <div>
-      <a href="/react-project-collection">HOME</a>
-      <a href="/react-project-collection/rock-paper-scissors">Rock Paper Scissors</a>
+      <Link to="/react-project-collection">
+        HOME
+      </Link>
+      <Link to="/react-project-collection/rock-paper-scissors">
+        Rock Paper Scissors
+      </Link>
     </div>
   )
 }
