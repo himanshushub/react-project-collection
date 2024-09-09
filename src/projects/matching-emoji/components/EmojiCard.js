@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export default function EmojiCard(props) {
   const { emoji, flipped, handleFlipped, cardIdx } = props;
 
