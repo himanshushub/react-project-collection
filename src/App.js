@@ -2,7 +2,7 @@ import { RouterProvider } from "react-router-dom";
 
 import router from "./router/router";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
