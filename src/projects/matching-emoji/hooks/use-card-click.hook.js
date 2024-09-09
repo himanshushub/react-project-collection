@@ -12,6 +12,7 @@ export default function useCardClick() {
 
     if (isCheckInProgress.current) return;
     if (fistFlippedIdx === idx) return;
+    if (listEmojiObj[idx].flipped) return;
 
     handleSetEmojiObj(idx, true);
     if (fistFlippedIdx === null) {
