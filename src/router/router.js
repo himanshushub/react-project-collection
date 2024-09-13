@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import Home from "../pages/Home";
 import RockPaperScissors from "../projects/rock-paper-scissors/RockPaperScissors";
 import MatchingEmoji from "../projects/matching-emoji/MatchingEmoji";
-import Home from "../pages/Home";
+import FolderManager from "../projects/folder-manager/FolderManager";
 
 const route = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const route = createBrowserRouter([
   {
     path: "/react-project-collection/matching-emoji",
     element: <MatchingEmoji />,
+  },
+  {
+    path: "/react-project-collection/folder-manager",
+    element: <FolderManager />,
   },
 ]);
 

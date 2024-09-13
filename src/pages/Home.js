@@ -17,6 +17,7 @@ export default function Home() {
       <Link to="/react-project-collection/matching-emoji">
         Matching Emoji Game
       </Link>
+      <Link to="/react-project-collection/folder-manager">Folder Manager</Link>
     </div>
   );
 }
