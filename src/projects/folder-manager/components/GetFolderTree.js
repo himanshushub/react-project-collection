@@ -1,5 +1,6 @@
 export default function GetFolderTree(props) {
-  const { listFolders, selectedFolder, setselectedFolder } = props;
+  const { listFolders, selectedFolder, setselectedFolder, handleCollapse } =
+    props;
   return (
     <div>
       {listFolders.map((folder, idx) => {
@@ -12,16 +13,25 @@ export default function GetFolderTree(props) {
             }}
             style={{
               backgroundColor:
-                selectedFolder.id === folder.id ? "blueviolet" : "white",
+                selectedFolder.id === folder.id ? "darkturquoise" : "white",
               marginLeft: "30px",
             }}
           >
-            <>🗂️{folder.name}</>
-            {!!folder.subFolder.length && (
+            <div style={{ display: "flex", gap: "2px" }}>
+              {folder.isCollapsed && (
+                <div onClick={() => handleCollapse(folder, false)}>🔼</div>
+              )}
+              {!folder.isCollapsed && (
+                <div onClick={() => handleCollapse(folder, true)}>🔽</div>
+              )}
+              🗂️ {folder.name}
+            </div>
+            {!!folder.subFolder.length && !folder.isCollapsed && (
               <GetFolderTree
                 listFolders={folder.subFolder}
                 selectedFolder={selectedFolder}
                 setselectedFolder={setselectedFolder}
+                handleCollapse={handleCollapse}
               />
             )}
           </div>

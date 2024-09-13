@@ -5,6 +5,12 @@ export default function FolderManager() {
   const [inputVal, setInputVal] = useState("");
   const [selectedFolder, setselectedFolder] = useState({});
   const [listFolders, setlistFolders] = useState([]);
+
+  const handleCollapse = (folder, collapse) => {
+    folder.isCollapsed = collapse;
+    setlistFolders([...listFolders]);
+  };
+
   return (
     <div
       style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -17,6 +23,7 @@ export default function FolderManager() {
               id: new Date().valueOf().toString(),
               name: inputVal,
               subFolder: [],
+              isCollapsed: false,
             };
             if (selectedFolder.id) {
               selectedFolder.subFolder.push(folder);
@@ -36,6 +43,7 @@ export default function FolderManager() {
         listFolders={listFolders}
         selectedFolder={selectedFolder}
         setselectedFolder={setselectedFolder}
+        handleCollapse={handleCollapse}
       />
     </div>
   );
