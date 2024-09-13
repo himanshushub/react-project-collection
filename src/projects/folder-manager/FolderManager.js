@@ -1,7 +1,9 @@
 import { useState } from "react";
+import GetFolderTree from "./components/GetFolderTree";
 
 export default function FolderManager() {
   const [inputVal, setInputVal] = useState("");
+  const [selectedFolderId, setselectedFolderId] = useState("");
   const [listFolders, setlistFolders] = useState([]);
   return (
     <div
@@ -11,20 +13,32 @@ export default function FolderManager() {
         <input value={inputVal} onChange={(e) => setInputVal(e.target.value)} />
         <button
           onClick={() => {
-            if (inputVal) setlistFolders([...listFolders, inputVal]);
+            const folder = {
+              id: new Date().valueOf().toString(),
+              name: inputVal,
+              subFolder: [],
+            };
+            if (selectedFolderId) {
+              listFolders
+                .find((folder) => folder.id === selectedFolderId)
+                .subFolder.push(folder);
+            } else if (inputVal) {
+              listFolders.push(folder);
+            }
+            setlistFolders([...listFolders]);
           }}
         >
           Add Folder
         </button>
-        <button onClick={() => console.log("input value", listFolders.length)}>
+        <button onClick={() => console.log("input value", listFolders)}>
           Add File
         </button>
       </div>
-      <div>
-        {listFolders.map((folder, idx) => {
-          return <div key={folder + idx}>🗂️{folder}</div>;
-        })}
-      </div>
+      <GetFolderTree
+        listFolders={listFolders}
+        selectedFolderId={selectedFolderId}
+        setselectedFolderId={setselectedFolderId}
+      />
     </div>
   );
 }
