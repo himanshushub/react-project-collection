@@ -11,6 +11,21 @@ export default function FolderManager() {
     setListFolders([...listFolders]);
   };
 
+  const handleDelete = (folder) => {
+    const folderStr = JSON.stringify(folder);
+    const dummyStr = JSON.stringify(listFolders);
+    let finalStr = dummyStr.replace(folderStr, "");
+
+    // if deleted from middle
+    finalStr = finalStr.replace(",,", ",");
+    // if deleted from start
+    finalStr = finalStr.replace("[,", "[");
+    // if deleted from end
+    finalStr = finalStr.replace(",]", "]");
+
+    setListFolders(JSON.parse(finalStr));
+  };
+
   return (
     <div
       style={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -44,6 +59,7 @@ export default function FolderManager() {
         selectedFolder={selectedFolder}
         setSelectedFolder={setSelectedFolder}
         handleCollapse={handleCollapse}
+        handleDelete={handleDelete}
       />
     </div>
   );
