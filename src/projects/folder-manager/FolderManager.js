@@ -3,7 +3,7 @@ import GetFolderTree from "./components/GetFolderTree";
 
 export default function FolderManager() {
   const [inputVal, setInputVal] = useState("");
-  const [selectedFolderId, setselectedFolderId] = useState("");
+  const [selectedFolder, setselectedFolder] = useState({});
   const [listFolders, setlistFolders] = useState([]);
   return (
     <div
@@ -18,10 +18,10 @@ export default function FolderManager() {
               name: inputVal,
               subFolder: [],
             };
-            if (selectedFolderId) {
-              listFolders
-                .find((folder) => folder.id === selectedFolderId)
-                .subFolder.push(folder);
+            if (selectedFolder.id) {
+              console.log("selectedFolder", selectedFolder);
+
+              selectedFolder.subFolder.push(folder);
             } else if (inputVal) {
               listFolders.push(folder);
             }
@@ -36,8 +36,8 @@ export default function FolderManager() {
       </div>
       <GetFolderTree
         listFolders={listFolders}
-        selectedFolderId={selectedFolderId}
-        setselectedFolderId={setselectedFolderId}
+        selectedFolder={selectedFolder}
+        setselectedFolder={setselectedFolder}
       />
     </div>
   );
