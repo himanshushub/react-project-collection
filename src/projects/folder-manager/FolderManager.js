@@ -3,12 +3,12 @@ import GetFolderTree from "./components/GetFolderTree";
 
 export default function FolderManager() {
   const [inputVal, setInputVal] = useState("");
-  const [selectedFolder, setselectedFolder] = useState({});
-  const [listFolders, setlistFolders] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState({});
+  const [listFolders, setListFolders] = useState([]);
 
   const handleCollapse = (folder, collapse) => {
     folder.isCollapsed = collapse;
-    setlistFolders([...listFolders]);
+    setListFolders([...listFolders]);
   };
 
   return (
@@ -30,7 +30,7 @@ export default function FolderManager() {
             } else if (inputVal) {
               listFolders.push(folder);
             }
-            setlistFolders([...listFolders]);
+            setListFolders([...listFolders]);
           }}
         >
           Add Folder
@@ -42,7 +42,7 @@ export default function FolderManager() {
       <GetFolderTree
         listFolders={listFolders}
         selectedFolder={selectedFolder}
-        setselectedFolder={setselectedFolder}
+        setSelectedFolder={setSelectedFolder}
         handleCollapse={handleCollapse}
       />
     </div>

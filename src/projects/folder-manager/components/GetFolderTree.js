@@ -1,5 +1,5 @@
 export default function GetFolderTree(props) {
-  const { listFolders, selectedFolder, setselectedFolder, handleCollapse } =
+  const { listFolders, selectedFolder, setSelectedFolder, handleCollapse } =
     props;
   return (
     <div>
@@ -9,7 +9,7 @@ export default function GetFolderTree(props) {
             key={folder.id}
             onClick={(e) => {
               e.stopPropagation();
-              setselectedFolder(folder);
+              setSelectedFolder(folder);
             }}
             style={{
               backgroundColor:
@@ -30,7 +30,7 @@ export default function GetFolderTree(props) {
               <GetFolderTree
                 listFolders={folder.subFolder}
                 selectedFolder={selectedFolder}
-                setselectedFolder={setselectedFolder}
+                setSelectedFolder={setSelectedFolder}
                 handleCollapse={handleCollapse}
               />
             )}
