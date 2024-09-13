@@ -19,8 +19,6 @@ export default function FolderManager() {
               subFolder: [],
             };
             if (selectedFolder.id) {
-              console.log("selectedFolder", selectedFolder);
-
               selectedFolder.subFolder.push(folder);
             } else if (inputVal) {
               listFolders.push(folder);

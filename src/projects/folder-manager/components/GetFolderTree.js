@@ -13,6 +13,7 @@ export default function GetFolderTree(props) {
             style={{
               backgroundColor:
                 selectedFolder.id === folder.id ? "blueviolet" : "white",
+              marginLeft: "30px",
             }}
           >
             <>🗂️{folder.name}</>
